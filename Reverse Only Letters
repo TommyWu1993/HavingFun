@@ -1,0 +1,27 @@
+917. Reverse Only Letters
+
+Given a string S, return the "reversed" string where all characters that are not a letter stay in the same place, and all letters reverse their positions.
+
+Example 1:
+Input: "ab-cd"
+Output: "dc-ba"
+
+Example 2:
+Input: "a-bC-dEf-ghIj"
+Output: "j-Ih-gfE-dCba"
+
+Example 3:
+Input: "Test1ng-Leet=code-Q!"
+Output: "Qedo1ct-eeLg=ntse-T!"
+
+
+var reverseOnlyLetters = function(S) {
+    if(S.match(/[a-zA-Z]/g) === null) return S;
+    let a = S.match(/[a-zA-Z]/g).reverse();
+    for (let i in S){
+        if (!/[a-zA-Z]/.test(S[i])){    //检测出其中的字数、符号(check non-letter)
+                a.splice(i,0,S[i]);         
+            }
+    }
+    return a.join("");
+};
