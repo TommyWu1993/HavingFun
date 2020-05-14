@@ -1,0 +1,17 @@
+Break camelCase
+
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+solution("camelCasing")  ==  "camel Casing"
+
+
+function solution(string) {
+    let b = string.split("");
+    for (let i=0;i<b.length;i++){
+        if (b[i].match(/[A-Z]/g)){
+            b[i] = " " + b[i];
+        }
+    }
+    return b.join("");
+}
