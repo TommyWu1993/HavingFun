@@ -1,4 +1,4 @@
-# HavingFun
+# JavaScript
 Just a practise of my study in UOW
 
 Hi whoever can see this file.
