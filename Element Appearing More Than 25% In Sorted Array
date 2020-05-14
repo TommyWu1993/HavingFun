@@ -1,0 +1,27 @@
+1287. Element Appearing More Than 25% In Sorted Array
+
+Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time.
+
+Return that integer.
+
+Example 1:
+Input: arr = [1,2,2,6,6,6,6,7,10]
+Output: 6
+
+
+var findSpecialInteger = function(arr) {
+    let newArr = arr.filter((element,index,self) => self.indexOf(element) === index); //[1,2,6,7,10]
+    let countArr = [];
+    for (let i=0;i<newArr.length;i++){
+        let count = 0;
+        for (let j=0;j<arr.length;j++){
+            if (newArr[i] === arr[j]){
+                count += 1;
+            }
+        }
+        countArr.push(count);  //countArr = [ 1, 2, 4, 1, 1 ]
+    }
+    let maxCount = Math.max(...countArr); // 4
+    let position = countArr.indexOf(maxCount); // [2]第二位数字
+    return newArr[position]; //[[1,2,6,7,10]]的第二个：6
+};
